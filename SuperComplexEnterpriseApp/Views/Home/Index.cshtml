@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Content/Bundle.js"></script>
+
+<div class="jumbotron">
+    <h1>Some dummy title</h1>
+    <comments-list params="loadingParameter: 'test1'"></comments-list>
+</div>
+
+<script>
+    (function () {
+        ko.applyBindings();
+    }())
+</script>
