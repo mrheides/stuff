@@ -4,4 +4,4 @@
     ko.components.register('comments-list', { viewModel: require("./CommentsViewModel.js"), template: require("./CommentsTemplate.html") });
 })();
 
-
+module.exports.CommentViewModel = require("./CommentViewModel.js");

@@ -3,14 +3,32 @@
 }
 
 <script src="~/Content/Bundle.js"></script>
+<script src="~/Content/SomeOutOfBundle.js"></script>
 
-<div class="jumbotron">
+<div class="jumbotron" id="test1">
     <h1>Some dummy title</h1>
     <comments-list params="loadingParameter: 'test1'"></comments-list>
 </div>
 
+
+<div class="jumbotron" id="test2">
+    <h1>Out of bundle usage</h1>
+    <div class="comment-input">
+        <label for="commentInputElement">add new comment:</label>
+        <input id="commentInputElement" type="text" data-bind="value: commentInputValue" />
+        <button data-bind="click: onClick">add</button>
+    </div>
+    <!-- ko foreach: comments -->
+    <div class="single-comment">
+        <img data-bind="attr: {src: $data.avatarPath}" />
+        <span data-bind="text: $data.commentText"></span>
+    </div>
+    <!-- /ko -->
+</div>
+
 <script>
     (function () {
-        ko.applyBindings();
+        ko.applyBindings({}, document.getElementById("test1"));
+        SomeOutOfBundle.init();
     }())
 </script>
